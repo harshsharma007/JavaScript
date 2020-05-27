@@ -11,18 +11,18 @@
 */
 
 const num = 50
-num = 20 //It will throw an error.
+//num = 20 //It will throw an error.
 
 let numLet = 50
 numLet = 51
 numLet++
 
 //But let variable can't be declared twice. The below will fail.
-let numLet = 20
+//let numLet = 20
 
 //But the below operation can be performed.
 const obj = {}
-obj = {} //It will throw an error because obj is already declared. But below operation can be performed.
+//obj = {} //It will throw an error because obj is already declared. But below operation can be performed.
 obj.a = 'a'
 
 /*
@@ -37,4 +37,34 @@ var numVar = 52
 /*
     It will not throw an error. Because vars are older ways to declare variables and they don't have the
     same protection that let and const do.
+*/
+
+console.log(numVar)
+/*
+    It will display 52 because 52 is the new value and this concept is known as the concept of shadowing.
+*/
+
+/*
+    IMPORTANT INTERVIEW QUESTION
+    WHAT WOULD BE THE VALUE OF VARIABLE a
+*/
+
+var a = 1;
+function b() {
+    a = 10;
+    return;
+
+    function a() {}
+}
+
+b();
+console.log(a);
+
+/*
+    Below is the explanation of the above code
+    1. The global a is set to 1
+    2. b() is called
+    3. function a() {} is hoisted and creates a local variable a that masks the global a
+    4. The local a is set to 10 (overwriting the function a)
+    5. The global a (still 1) is alerted
 */
