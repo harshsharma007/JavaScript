@@ -68,3 +68,27 @@ console.log(a);
     4. The local a is set to 10 (overwriting the function a)
     5. The global a (still 1) is alerted
 */
+
+/*
+    What is the advantage of scoping? Is it a feature or a bug?
+    One thing can be:
+    We can have the function declaration at the bottom and call them at the top. It might be good for code
+    organization. Because while traversing through the code, everyone knows that the declaration of every
+    function is at the bottom of the file.
+
+    Why can we declare two variables with the same name when they look like they're in the same scope,
+    specifically with this var keyword?
+    Which is another thing where it's a bug/feature that a lot of people use. So, if JavaScript were to be
+    updated and that bug/feature were to disappear, a lot of code would break.
+    Lot of people took advantage of this and basically it's the same thing as like, why is typeof null is object.
+
+    There is no good reason left to use var anymore. With ES6, everything supports const and let.
+*/
+
+//Another way of declaring a variable
+thisIsAlsoAVariable = 'Hello'
+
+/*
+    This will create a global variable, but there is really no reason to do it. If you create a variable
+    without using let, const or var, it will create a global variable.
+*/

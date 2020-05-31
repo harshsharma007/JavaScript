@@ -17,6 +17,16 @@
     declaration in any place in the scope:
 */
 
+/*
+    Function hoisting
+    Function hoisting is a behavior whereby a function definition declared at the very bottom of a file is
+    actually available for use at the very top of the file as well.
+*/
+thisIsHoisted() //=> Will work
+
+//thisIsNotHoisted() //=> Will not work, because const is not available for use until they're actually declared.
+thisIsNotHoistedVar()
+
 //var hoisting
 console.log(num) //=> undefined
 var num
@@ -170,9 +180,9 @@ let condition = true
 if (condition) {
     //console.log(number) => Throws ReferenceError
     let number
-    console.log(number)
+    console.log(number) //=> undefined
     number = 5
-    console.log(number)
+    console.log(number) //=> 5
 }
 
 /*
@@ -209,4 +219,64 @@ if (condition) {
         I.  Declare, initialize and then use variables. This flow is correct and easy to follow.
         II. Keep the variables as hidden as possible. The less variables are exposed, the more modular your
             code becomes.
+*/
+
+/*
+    From edx.org
+*/
+
+//This function can be called at the top of a file.
+function thisIsHoisted() {
+    console.log('This is a function declared at the bottom of a file.')
+}
+
+/*
+    Below code is also holds true for let keyword.
+*/
+const thisIsNotHoisted = function() {
+    console.log('Should this be hoisted?')
+}
+
+/*
+    The difference between thisIsHoisted() and thisIsNotHoisted() function is that thisIsNotHoisted is declared
+    as const so, it can not be changed. Whereas, thisIsHoisted() is declared as function and can be changed.
+*/
+
+var thisIsNotHoistedVar = function() {
+    console.log('Var should this be hoisted?')
+}
+
+/*
+    When thisIsNotHoisted() and thisIsNotHoistedVar() is executed both returns different kind of exception.
+    const thisIsNotHoisted() returns -> ReferenceError: thisIsNotHoisted is not defined
+    var thisIsNotHoistedVar() returns -> TypeError: thisIsNotHoistedVar is not a function
+
+    The difference between the function error of const and var is that
+        When const or let is used, the variable is not declared at all. The variable does not exists at all.
+        This is not hoisted and JavaScript does not know what that means.
+
+        But in case of var, it hoists the declaration of the variable. So, it creates a variable called
+        thisIsNotHoistedVar. However, it does not assign it a value until the code is executed. So, function
+        thisIsNotHoistedVar exists. It's just equal to undefined. So, when it is invoked like a function,
+        interpreter throws an error saying this is an undefined variable and it can't be invoked like a function,
+        this is a TypeError.
+    
+    So, even though both of these things errored, the reason that they errored is slightly different.
+
+    Why this happens?
+    The reason is actually how JavaScript is executed.
+    There are two phases in the execution of a JavaScript file.
+    
+    First phase
+    Before executing any code, it has all of the text in front of it, but it hasn't executed anything,
+    it just reads the entire file. Here it actually looks for anything wrong with the file. Let's say,
+    an array is missing a comma that's something that's caught in the first reading.
+    Then any function definitions just get saved in memory, so if somebody wants to use it they're able to.
+    Variable initializations, if they're lexically scoped they will be declared, but they will not be initialized.
+    Meaning anything declared with var will say this variable exists but it's not going to be set equal to
+    anything until later.
+
+    Second phase
+    It is known as execution phase, whereby the code is actually executed. That is when things like const or
+    let get invoked or get both declared and initialized.
 */
