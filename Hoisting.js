@@ -178,7 +178,7 @@ console.log(sumArray([5, 10, 8]))
 
 let condition = true
 if (condition) {
-    //console.log(number) => Throws ReferenceError
+    //console.log(number) => Throws ReferenceError: number is not defined
     let number
     console.log(number) //=> undefined
     number = 5
