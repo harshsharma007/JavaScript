@@ -148,7 +148,7 @@ console.log(sumArray([5, 10, 8]))
 /*
     5. let variable lifecycle
     let variables are processed differently than var. The main distinction is that declaration and initialization
-    phases are split.
+    phases are splited.
 
         I.   Declaration phase
         II.  Uninitialized state (Accessing variable throws ReferenceError) aka Temporal dead zone
