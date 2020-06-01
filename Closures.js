@@ -1,5 +1,4 @@
 /*
-    Functions that refer to variables declared by parent function.
     The closure is a behavior whereby functions that refer to variables declared by a parent function still
     exist and it's possibly because of scoping.
 */
@@ -18,3 +17,19 @@ function makeFunctionArray() {
 
 const arr = makeFunctionArray()
 arr[0]() //It would have printed 0 but instead it prints 5
+
+function makeHelloFunction() {
+    const message = 'Hello!'
+
+    function sayHello() {
+        console.log(message)
+    }
+    return sayHello
+}
+
+const sayHello = makeHelloFunction()
+
+console.log('typeof message: ', typeof message)
+console.log(sayHello.toString())
+
+sayHello()

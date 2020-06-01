@@ -90,5 +90,11 @@ thisIsAlsoAVariable = 'Hello'
 
 /*
     This will create a global variable, but there is really no reason to do it. If you create a variable
-    without using let, const or var, it will create a global variable.
+    without using let, const or var, it will create a global variable, even if they are created inside a
+    function.
+
+    Global variables live until the page is discarded, like when you navigate to another page or close the
+    window.
+    Local variables have short lives. They are created when the function is invoked, and deleted when the 
+    function is finished.
 */
