@@ -19,7 +19,7 @@ console.log(o2.a)
     Examples of native JavaScript values that are mutable includes array, object, function, class, set and maps.
     Examples of immutable objects from the JDK include String and Integer.
     In Java, all strings are immutable.
-    When you are trying to modify a String, what you are really doing is creaating a new one.
+    When you are trying to modify a String, what you are really doing is creating a new one.
     However, when you use a StringBuilder, you are actually modifying the contents, instead of creating
     a new one.
 */

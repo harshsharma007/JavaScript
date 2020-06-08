@@ -41,6 +41,9 @@ const o3 = {
     }
 }
 
+//To call a function inside an object
+console.log(o3.greet())
+
 //The above three examples represent three different ways of declaring objects.
 
 /*
