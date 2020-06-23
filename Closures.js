@@ -316,4 +316,94 @@ console.log('Inside Global Execution Context') //Global Execution Context ends h
     When the person function finishes, its execution context is removed from the stack. But its lexical
     environment is still in the memory because its lexical environment is referenced by the lexical environment
     of its inner displayName function. So its variables are still available in the memory.
+
+    Please note that when the personLexicalEnvironment is created, the JavaScript engine attaches the
+    personLexicalEnvironment to all of the function definitions inside that lexical environment. So that later
+    on if any of the inner functions are called, the JavaScript engine can set the outer lexical environment
+    to the lexical envrionment attached to that function definition.
+
+    When the peter function is executed (which is actually a reference to the displayName function), the
+    JavaScript engine creates a new execution context and lexical environment for that function.
+
+    So, its lexical environment looks like this:
+
+    displayNameLexicalEnvironment = {
+        environmentRecord: {
+
+        }
+        outer: <personLexicalEnvironment>
+    }
+
+    As there's no variable in displayName function, its environment record will be empty. During the execution
+    of this function, the JavaScript engine will try to find the variable name in the function's lexical
+    environment.
+
+    As there are no variables in the lexical environment of displayName function, it will look into the outer
+    lexical environment, that is, the lexical environment of the person function which is still there in the
+    memory. The JavaScript engine finds the variable and name is printed to the console.
+*/
+
+/*
+    Example #2
+
+    function getCounter() {
+        let counter = 0
+        return function() {
+            return counter++
+        }
+    }
+
+    let count = getCounter()
+
+    console.log(count())
+    console.log(count())
+    console.log(count())
+
+    Again the lexical environment for the getCounter function will look like this:
+
+    getCounterLexicalEnvironment = {
+        environmentRecord: {
+            counter: 0,
+            <anonymous function> : <reference to function>
+        }
+        outer: <globalLexicalEnvironment>
+    }
+
+    This function returns an anonymous function and assigns it to count variable. When the count function is
+    executed, its lexical environment will look like this:
+
+    countLexicalEnvironment = {
+        environmentRecord: {
+            
+        }
+        outer: <getCountLexicalEnvironment>
+    }
+
+    When the count function is called, the JavaScript engine will look into the lexical environment of this
+    function for the counter variable. Again as its environment record is empty, the engine will look into the
+    outer lexical environment of the function.
+
+    The engine finds the variable, prints it to the console and will increment the counter variable in the
+    getCounter function lexical environment.
+
+    So the lexical environment for the getCounter function after first call count function will look like this:
+
+    getCounterLexicalEnvironment = {
+        environmentRecord: {
+            counter: 1,
+            <anonymous function> : <reference to function>
+        }
+        outer: <globalLexicalEnvironment>
+    }
+
+    On each call to the count function, the JavaScript engine creates a new lexical environment for the count
+    function, increments the counter variable and updates the lexical environment of getCounter function to
+    reflect changes.
+*/
+
+/*
+    Conclusion
+    So we have learned what closures are and how they really work. Closures are fundamental concepts of
+    JavaScript that every JavaScript developer should understand. Having a good knowledge of these concepts
+    will help you to become a much more effective and better JavaScript developer.
 */
