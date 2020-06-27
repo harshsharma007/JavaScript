@@ -1,6 +1,6 @@
 /*
-    The closure is a behavior whereby functions that refer to variables declared by a parent function still
-    exist and it's possibly because of scoping.
+    Closure is a behavior whereby functions that refer to variables declared by a parent function still exist.
+    And it's possibly because of scoping.
     Or
     A closure is a function that has access to some variables that have already left scope.
 */
@@ -17,20 +17,24 @@ function makeFunctionArray() {
 
     console.log(i)
     /*
-        Value of i is 5. Because we iterated through the numbers 0 and 5. And by the time we got to 5, that
-        was where i was left. Since it was declared with var, a var's lifecycle is till the function ends.
+        Value of i is 5.
+        Because we iterated through the numbers 0 and 5.
+        And by the time we got to 5, that was where i was left.
+        Since it was declared with var, a var's lifecycle is till the function ends.
         That's why when arr[0]() is invoked it prints 5.
     */
 
     /*
-        If we use let instead of var, then the value of let is retained to the next } only. If console.log(i)
-        is printed in case of let, then it will throw an exception. And arr[0]() will work as expected and 
-        will print 0.
+        If we use let instead of var, then the value of let is retained to the next } only.
+        If console.log(i) is printed in case of let, then it will throw an exception.
+        And arr[0]() will work as expected and will print 0.
     */
 
     /*
         What will happen if we have another variable i before for loop?
-        If i is declared to be of type let or const then it will through an error because i cannot be duplicated.
+        
+        If i is declared to be of type let or const then it will through an error.
+        Because i cannot be duplicated.
         But, if i is declared as var then new variable will over-shadow the previous one.
     */
 
@@ -57,9 +61,11 @@ console.log(sayHello.toString())
 sayHello()
 
 /*
-    A closure is a function that has access to its outer function scope even after the outer function has
-    returned. This means a closure can remember and access variables and arguments of its outer function
-    even after the function has finished.
+    Closure is a function that has access to its outer function scope even after the outer function has
+    returned.
+    
+    This means a closure can remember and access variables and arguments of its outer function even after
+    the function has finished.
     Before we dive into closures, let's understand the lexical scope.
 
     What is a Lexical Scope?
@@ -90,9 +96,8 @@ console.log(a)
 
 /*
     Here the inner function can access the variables defined in its own scope, the outer function's scope,
-    and the global scope. And the outer function can access the variable defined in its own scope and the
-    global scope.
-
+    and the global scope.
+    And the outer function can access the variable defined in its own scope and the global scope.
     So, a scope chain of the above code would be like this:
 
     Global {
