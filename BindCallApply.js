@@ -10,10 +10,10 @@
 */
 
 const person = {
-   name: 'Jordan',
-   greet: function () {
-      console.log(this.name)
-   }
+    name: 'Jordan',
+    greet: function () {
+        console.log(this.name)
+    }
 }
 
 /*
@@ -38,8 +38,13 @@ greet() //Case 2
 */
 
 const friend = {
-   name: 'David'
+    name: 'David'
 }
 
-friend.greet = person.greet
+/*
+   Bind()
+   We can explicitly bind some object to any particular function.
+*/
+
+friend.greet = person.greet.bind({ name: 'this is a bound object' })
 friend.greet()
