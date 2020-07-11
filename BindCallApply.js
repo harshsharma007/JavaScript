@@ -10,10 +10,10 @@
 */
 
 const person = {
-    name: 'Jordan',
-    greet: function () {
-        console.log(this.name)
-    }
+   name: 'Jordan',
+   greet: function () {
+      console.log(this.name)
+   }
 }
 
 /*
@@ -38,7 +38,7 @@ greet() //Case 2
 */
 
 const friend = {
-    name: 'David'
+   name: 'David'
 }
 
 /*
@@ -47,4 +47,33 @@ const friend = {
 */
 
 friend.greet = person.greet.bind({ name: 'this is a bound object' })
+person.greet.call({ name: 'this is a bound object' })
+person.greet.apply({ name: 'this is a bound object' })
 friend.greet()
+
+/*
+   Difference between Bind, Call and Apply?
+   Call and Apply rather than returning a new function they will immediately invoke that function.
+   Bind returns a new function. E.g. person.greet.bind returns a new function where this is automatically bound.
+
+   Bind returns a new function which we store in greet and invoke greet later.
+   Call and Apply immediately invoked that.
+*/
+
+/*
+   Other way to set this manually is by using ES6 arrow notation. ES6 arrow notation will bind this to be
+   whatever this is at the time we have declared the function rather than at the time we have invoked the
+   function.
+*/
+
+const newPerson = {
+   name: 'newPerson',
+   greet: () => { console.log(this.name) }
+}
+
+newPerson.greet()
+
+/*
+   newPerson.greet() will console log 'undefined'. Why?
+   Because this is a global object. ES6 arrow notation will bind this to be whatever the value is at the time of writing.
+*/
