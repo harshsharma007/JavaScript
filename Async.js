@@ -17,6 +17,14 @@ function printThree() {
     console.log('Three')
 }
 
+function printFour() {
+    console.log('Four')
+}
+
+function printFive() {
+    console.log('Five')
+}
+
 /*
     If the above functions are called like below:
     printOne()
@@ -34,6 +42,8 @@ function printThree() {
 setTimeout(printOne, 1000)
 setTimeout(printTwo, 0)
 printThree()
+setTimeout(printFour, 0)
+setTimeout(printFive, 0)
 
 /*
     To understand the execution and output of the above code, keep in mind Stack, APIs, Event loop

@@ -37,9 +37,17 @@ greet() //Case 2
    that global object. And, when we try to de-reference a key which is not defined globally we get undefined.
 */
 
+name = 'Harmony'
+
 const friend = {
-   name: 'David'
+   name: 'David',
+   greet: function () {
+      console.log(this.name)
+   }
 }
+
+console.log(name)
+console.log(friend.greet())
 
 /*
    Bind()
@@ -53,8 +61,9 @@ friend.greet()
 
 /*
    Difference between Bind, Call and Apply?
+   Bind returns a new function.
    Call and Apply rather than returning a new function they will immediately invoke that function.
-   Bind returns a new function. E.g. person.greet.bind returns a new function where this is automatically bound.
+   E.g. person.greet.bind returns a new function where this is automatically bound.
 
    Bind returns a new function which we store in greet and invoke greet later.
    Call and Apply immediately invoked that.

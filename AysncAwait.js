@@ -4,7 +4,7 @@
     2. Allows people to write async code as if it were synchronous.
 
     async keyword is used before function, which will let JavaScript know about the asynchronous behavior of
-    the function. await is keyword, which will wait for a value to come back before continuing the code.
+    the function. await is a keyword, which will wait for a value to come back before continuing the code.
 */
 
 async function login(req, res, callback) {
