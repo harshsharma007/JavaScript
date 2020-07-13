@@ -42,11 +42,11 @@ name = 'Harmony'
 const friend = {
    name: 'David',
    greet: function () {
-      console.log(this.name)
+      console.log('greet name', this.name) //David
+      console.log('global name', name) //Harmony
    }
 }
 
-console.log(name)
 console.log(friend.greet())
 
 /*
@@ -55,9 +55,10 @@ console.log(friend.greet())
 */
 
 friend.greet = person.greet.bind({ name: 'this is a bound object' })
+friend.greet()
+
 person.greet.call({ name: 'this is a bound object' })
 person.greet.apply({ name: 'this is a bound object' })
-friend.greet()
 
 /*
    Difference between Bind, Call and Apply?
@@ -86,3 +87,72 @@ newPerson.greet()
    newPerson.greet() will console log 'undefined'. Why?
    Because this is a global object. ES6 arrow notation will bind this to be whatever the value is at the time of writing.
 */
+
+/*
+   Arrow functions - a new feature introduced in ES6 - enabling writing concise functions in JavaScript. While
+   both regular and arrow functions work in a similar manner, yet there are certain interesting differences
+   between them, as discussed below.
+*/
+
+/*
+   Syntax of regular functions vs Syntax of arrow functions
+*/
+
+let square = function (x) {
+   return (x * x)
+}
+
+let squareNew = (x) => {
+   return (x * x)
+}
+
+/*
+   UNLIKE REGULAR FUNCTIONS, ARROW FUNCTIONS DO NOT HAVE THEIR OWN THIS.
+*/
+
+let user = {
+   name: 'Watch',
+   G1: () => {
+      console.log('this.name', this.name) //No this binding here.
+   },
+   G2: function () {
+      console.log('this.name', this.name) //this binding works.
+   }
+}
+
+/*
+   Availability of arguments objects.
+   Arguments objects are not available in arrow functions, but are available in regular functions.
+*/
+
+let userNew = {
+   show() {
+      console.log(arguments)
+   }
+}
+userNew.show(1, 2, 3)
+
+let userArrow = {
+   show: () => {
+      console.log(arguments)
+   }
+}
+userArrow.show(1, 2, 3)
+
+/*
+   Using new keyword
+   Regular functions created using function declarations or expressions are 'constructible' and 'callable'.
+   Since regular functions are constructible, they can be called using the 'new' keyword. However, the
+   arrow functions are only 'callable' and not 'constructible'. Thus, we will get a run-time error on trying
+   to construct a non-constructible arrow functions using the new keyword.
+*/
+
+let x = function () {
+   console.log(arguments)
+}
+new x = (1, 2, 3)
+
+let y = () => {
+   console.log(arguments)
+}
+new y = (1, 2, 3)
