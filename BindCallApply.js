@@ -38,6 +38,12 @@ greet() //Case 2
 */
 
 name = 'Harmony'
+/*
+   this refers to global object. If console.log(this.name) is executed on the browser it will return value
+   of the name 'Harmony'. Since, this is not a global object in VS code or Node.js. So, we have to use
+   window object to fetch the value of name variable.
+*/
+console.log(this.name)
 
 const friend = {
    name: 'David',
@@ -150,9 +156,9 @@ userArrow.show(1, 2, 3)
 let x = function () {
    console.log(arguments)
 }
-new x = (1, 2, 3)
+new x(1, 2, 3)
 
 let y = () => {
    console.log(arguments)
 }
-new y = (1, 2, 3)
+//new y(1, 2, 3) Throw an exception. Because it is not constructible.
