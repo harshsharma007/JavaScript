@@ -12,6 +12,12 @@ function doSomething(callback) {
     callback(1)
 }
 
+/*
+    A custom callback function can be created by using the callback keyword as the last parameter. It can then
+    be invoked by calling the callback() function at the end of the function. The typeof operator is optionally
+    used to check if the argument passed is actually a function.
+*/
+
 doSomething(console.log)
 
 function doSomethingAsync(callback) {
