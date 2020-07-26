@@ -230,7 +230,7 @@ console.log('Inside Global Execution Context') //Global Execution Context ends h
     1) the environment record
     2) a reference to the outer environment.
 
-    1) The environment record is the actual place where the variable and function declarations are stored.
+    1) The environment record is the actual place where the variables and function declarations are stored.
     2) The reference to the outer environment means it has access to its outer (parent) lexical environment.
        This component is the most important in order to understand how closures work.
     
