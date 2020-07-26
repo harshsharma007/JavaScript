@@ -197,7 +197,7 @@ console.log(count()) //2
     Let's look at a code snippet to better understand execution context and stack:
 */
 
-let a = 'Hello World!'  //Global Execution Context
+let an = 'Hello World!'  //Global Execution Context
 
 function first() {  //first() Function Execution Context
     console.log('Inside first function')
