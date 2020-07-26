@@ -1,4 +1,10 @@
 /*
+    JavaScript statements are executed line by line. However, with effects, the next line of code can be run
+    even though the effect is not finished. This can create errors.
+
+    To prevent this, callback functions can be created. A callback function is executed after the current effect
+    is finished.
+    
     This is a traditional example of callback hell.
 */
 
