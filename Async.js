@@ -1,4 +1,12 @@
 /*
+    Async functions enable us to write promise based code as if it were synchronous, but without blocking
+    the execution thread. It operates asynchronously via the event-loop. Async functions will always return
+    a value. Using async simply implies that a promise will be returned and if a promise is not returned,
+    JavaScript automatically wraps it in a resolved promise with its value.
+
+    JavaScript is a synchronous programming language, but because of callback functions we can make it
+    work like an Asynchronous Programming language.
+
     Asynchronous functions are:
     1. setTimeout()
     2. XMLHttpRequest(), jQuery.ajax(), fetch()
