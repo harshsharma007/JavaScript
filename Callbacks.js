@@ -19,6 +19,8 @@ function doSomething(callback) {
     callback(1)
 }
 
+doSomething(console.log)
+
 /*
     Why do we need Callbacks?
     For one very important reason - JavaScript is an event driven language. This means that instead of
@@ -141,8 +143,6 @@ doHomeworkNew('Math', alertFinished)
     be invoked by calling the callback() function at the end of the function. The typeof operator is optionally
     used to check if the argument passed is actually a function.
 */
-
-doSomething(console.log)
 
 function doSomethingAsync(callback) {
     setTimeout(function () { callback(1) }, 1000)
