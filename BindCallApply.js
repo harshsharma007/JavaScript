@@ -1,12 +1,14 @@
 /*
-    1. "this" refers to an object that's set at the creation of a new execution context (function invocation).
-       In other words, another stack frame.
-    2. "this" in JavaScript is slightly different from "this" in other languages.
-    3. In the global execution context, "this" refers to global object.
-    4. If the function is called as a method of an object, "this" is bound to the object the method is called on.
-       A method is a term for a key value pair in an object where the value is a function. That key is
-       considered a method. So, if a function is called as a method of an object, "this" is bound to that object
-       that function is called on.
+   These 3 methods are used to control the invocation of the function.
+
+   1. "this" refers to an object that's set at the creation of a new execution context (function invocation).
+      In other words, another stack frame.
+   2. "this" in JavaScript is slightly different from "this" in other languages.
+   3. In the global execution context, "this" refers to global object.
+   4. If the function is called as a method of an object, "this" is bound to the object the method is called on.
+      A method is a term for a key value pair in an object where the value is a function. That key is
+      considered a method. So, if a function is called as a method of an object, "this" is bound to that object
+      that function is called on.
 */
 
 const person = {
@@ -75,6 +77,87 @@ person.greet.apply({ name: 'this is a bound object' })
    Bind returns a new function which we store in greet and invoke greet later.
    Call and Apply immediately invoked that.
 */
+
+/*
+   Understanding Call, Apply and Bind in detail.
+
+                       +-------------------+-------------------+
+                       |                   |                   |
+                       |      time of      |       time of     |
+                       |function execution |    this binding   |
+                       |                   |                   |
+   +-------------------+-------------------+-------------------+
+   |                   |                   |                   |
+   | function object   |      future       |       future      |
+   |        f          |                   |                   |
+   |                   |                   |                   |
+   +-------------------+-------------------+-------------------+
+   |                   |                   |                   |
+   |   function call   |        now        |         now       |
+   |        f()        |                   |                   |
+   |                   |                   |                   |
+   +-------------------+-------------------+-------------------+
+   |                   |                   |                   |
+   |     f.call()      |        now        |         now       |
+   |     f.apply()     |                   |                   |
+   |                   |                   |                   |
+   +-------------------+-------------------+-------------------+
+   |                   |                   |                   |
+   |     f.bind()      |       future      |         now       |
+   |                   |                   |                   |
+   +-------------------+-------------------+-------------------+
+*/
+
+/*
+   They all attaches this into function and the difference is in the function invocation.
+   
+   call attaches this into function and executes the function immediately
+*/
+
+var personCall = {
+   name: 'James Smith',
+   hello: function (thing) {
+      console.log(this.name + ' says hello ' + thing)
+   }
+}
+
+personCall.hello('world') //output: James Smith says hello world
+personCall.hello.call({ name: 'Jim' }, 'world') //output: Jim says hello world
+
+/*
+   bind attaches this into function and it needs to be invoked
+*/
+
+var personBind = {
+   name: 'James Smith',
+   hello: function (thing) {
+      console.log(this.name + ' says hello ' + thing)
+   }
+}
+
+personBind.hello('world') //output: James Smith says hello world
+var helloFunc = personBind.hello.bind({ name: 'Jim' }) //output: Jim says hello world
+helloFunc('world')
+
+//Another syntax for bind
+var helloFuncNew = personBind.hello.bind({ name: 'Jim' }, 'world')
+helloFuncNew()
+
+/*
+   apply is similar to call except that it takes an array-like object instead of listing the arguments out
+   one at a time:
+*/
+
+function personContainer() {
+   var person = {
+      name: 'James Smith',
+      hello: function () {
+         console.log(this.name + ' says hello ' + arguments[1])
+      }
+   }
+   person.hello.apply(person, arguments)
+}
+personContainer('world', 'mars') // output: "James Smith says hello mars", note: arguments[0] = "world" , arguments[1] = "mars"
 
 /*
    Other way to set "this" manually is by using ES6 arrow notation. ES6 arrow notation will bind "this" to be

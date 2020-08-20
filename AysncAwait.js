@@ -25,3 +25,13 @@ async function login(req, res, callback) {
         callback(err)
     }
 }
+
+/*
+    Q. How JavaScript execute async functions when no await keyword is present?
+    A. An async function can contain an await expression, that pauses the execution of the async function
+       and waits for the passed Promise's resolution and then resumes the async function's execution and
+       returns the resolved value.
+
+       As you assumed, if no await is present the execution is not paused and your code will then be
+       executed in a non-blocking manner.
+*/
