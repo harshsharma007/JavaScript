@@ -126,3 +126,145 @@ msgPromiseAll()
     Promise.all returns an array with the resolved values once all the passed-in promises have resolved.
     In the above we also make use of some nice array destructing to make our code succinct.
 */
+
+/*
+    Promise-Returning
+    Async functions always return a promise, so the following may not produce the result you're after:
+*/
+async function hello() {
+    return 'Hello Alligator!'
+}
+
+const b = hello()
+console.log(b)
+
+/*
+    Since what's returned is a promise, you could do something like this instead:
+*/
+
+async function helloA() {
+    return 'Hello Alligator!'
+}
+
+const ba = helloA()
+ba.then(x => console.log(x)) //Hello Alligator
+
+//Or just
+
+async function helloB() {
+    return 'Hello Alligator!'
+}
+
+helloB().then(x => console.log(x)) //Hello Alligator
+
+/*
+    Different Forms
+    So far with our examples we saw the async function as a function declaration, but you we can also define
+    async function expressions and async arrow functions:
+
+    Async Function Expression
+    Here's the async function from our first example, but defined as a function expression:
+*/
+
+const msgA = async function () {
+    const msg = await scaryClown()
+    console.log('Message A:', msg)
+}
+
+/*
+    Async Arrow Function
+    Here's that same example once again, but this time defined as an arrow function:
+*/
+
+const msgB = async () => {
+    const msg = await scaryClown()
+    console.log('Message B:', msg)
+}
+
+/*
+    Error Handling
+    Something else that's very nice about async functions is that error handling is also done completely
+    synchronously, using good old try..catch statements. Let's demonstrate by using a promise that will
+    reject half the time:
+*/
+
+function yayOrNay() {
+    return new Promise((resolve, reject) => {
+        const val = Math.round(Math.random() * 1)
+
+        val ? resolve('Lucky!!') : reject('Nope')
+    })
+}
+
+async function msgC() {
+    try {
+        const msg = await yayOrNay()
+        console.log('Message C:', msg)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+msgC()
+msgC()
+
+/*
+    Given that async functions always return a promise, you can also deal with unhandled errors as you would
+    normally using a catch statement:
+*/
+
+async function msgD() {
+    const msg = await yayOrNay()
+    console.log('Message D:', msg)
+}
+msgD().catch(x => console.log(x))
+
+/*
+    This synchronous error handling doesn't just work when a promise is rejected, but also when there's an
+    actual runtime or syntax error happening. In the following example, the second time with call our msg
+    function we pass in a number value that doesn't have a toUpperCase method in its prototype chain. Our
+    try...catch block catches that error just as well:
+*/
+
+function caserUpper(val) {
+    return new Promise((resolve, reject) => {
+        resolve(val.toUpperCase())
+    })
+}
+
+async function msgE(x) {
+    try {
+        const msg = await caserUpper(x)
+        console.log('Message E:', msg)
+    } catch (err) {
+        console.log('Ohh no:', err.message)
+    }
+}
+
+msgE('Hello') //HELLO
+msgE(34) //val.toUpperCase is not a function
+
+/*
+    Async Functions With Promise-Bases APIS
+    As we showed in our primer to the Fetch API, web APIs that are promise-based are a perfect candidate for
+    async functions:
+*/
+
+async function fetchUsers(endPoint) {
+    const res = await fetch(endPoint)
+    let data = await res.json()
+    data = data.map(user => user.username)
+    console.log(data)
+}
+
+fetchUsers('https://jsonplaceholder.typicode.com/users')
+// ["Bret", "Antonette", "Samantha", "Karianne", "Kamren", "Leopoldo_Corkery", "Elwyn.Skiles", "Maxime_Nienow", "Delphine", "Moriah.Stanton"]
+
+/*
+    Conclusion
+    Before Async/await functions, JavaScript code that relied on lots of asynchronous events
+    (for example: code that made lots of calls to APIs) would end up in what some called "callback hell" - 
+    A chain of functions and callbacks that was very difficult to read and understand.
+
+    Async and await allow us to write asynchronous JavaScript code that reads much more clearly.
+*/
