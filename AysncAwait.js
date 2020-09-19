@@ -104,7 +104,7 @@ async function msgNew() {
     const a = await who()
     const b = await what()
     const c = await where()
-    console.log(`${ a } ${ b } ${ c }`)
+    console.log(`${a} ${b} ${c}`)
 }
 
 msgNew()
@@ -117,7 +117,7 @@ msgNew()
 
 async function msgPromiseAll() {
     const [a, b, c] = await Promise.all([who(), what(), where()])
-    console.log(`${ a } ${ b } ${ c }`)
+    console.log(`${a} ${b} ${c}`)
 }
 
 msgPromiseAll()
@@ -267,4 +267,23 @@ fetchUsers('https://jsonplaceholder.typicode.com/users')
     A chain of functions and callbacks that was very difficult to read and understand.
 
     Async and await allow us to write asynchronous JavaScript code that reads much more clearly.
+*/
+
+/*
+    Side-Effect of not using Promise
+*/
+function MI() {
+    setTimeout(() => {
+        console.log('Test')
+    }, 10000)
+}
+
+async function IPL() {
+    const msg = await MI()
+    console.log('Hi', msg)
+    console.log('Hello')
+}
+
+/*
+    The above code will produce unexpected output.
 */
