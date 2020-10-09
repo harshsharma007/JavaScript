@@ -65,8 +65,7 @@ sayHello()
     returned.
     
     This means a closure can remember and access variables and arguments of its outer function even after
-    the function has finished.
-    Before we dive into closures, let's understand the lexical scope.
+    the function has finished. Before we dive into closures, let's understand the lexical scope.
 
     What is a Lexical Scope?
     A lexical scope or static scope in JavaScript refers to the accessibility of the variables, functions

@@ -1,6 +1,30 @@
 /*
     First-Class Functions
 
+    In JavaScript, functions are first-class objects, which means they can be:
+        1. Stored in a variable, object or array.
+        2. Passed as an argument to a function.
+        3. Returned from a function.
+    
+    Storing a function
+    Functions can be stored in three ways:
+        1. Store in a variable: let fn = function doSomething() { }
+        2. Store in an object: let obj = { doSomething : function() { } }
+        3. Store in an array: arr.push(function doSomething() { })
+    
+    In the first and third example, I used a named function expression. The function expression defines
+    a function as part of a larger expression. The line of code doesn't start with function.
+
+    Function as an argument
+    In the next example, the function doSomething is sent as an argument to doAction().
+        doAction(function doSomething(){})
+    doSomething is a callback.
+    A callback is a function passed as an argument to another function.
+
+    Higher order functions
+    A higher order function is a function that takes another function as an input, returns a function or
+    does both.
+
     1. Functions are treated the same way as any other value.
         1.1 Functions can be assigned to variables, array values, object values.
         1.2 Everything that isn't primitive is an object.
@@ -59,6 +83,11 @@ console.log(x.filter(isGreaterThanOne))
 
 function add(x, y) {
     return x + y
+    /*
+        Here,
+            x is the index like 0, 1, 2, 3.
+            y is the value of array.
+    */
 }
 console.log(add(1, 2))
 

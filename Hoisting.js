@@ -134,6 +134,11 @@ function sumArray(array) {
 
     function sum(a, b) {
         return a + b
+        /*
+            Here,
+                a is the index like 0, 1, 2, 3.
+                b is the value of array.
+        */
     }
 }
 console.log(sumArray([5, 10, 8]))

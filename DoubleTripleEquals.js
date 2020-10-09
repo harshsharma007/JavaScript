@@ -1,5 +1,5 @@
 /*
-    == coerce the types
+    == coerce the types //English meaning of Coerce - persuade to do something by using force or threats.
     === requires equivalent types
 
     typeof is used to check the type of a variable.
@@ -13,7 +13,7 @@ console.log(typeof x)
 console.log(typeof null)
 
 /*
-    This is one of the strange things of JavaScript. Since, ES6 needs to have backward compatibility that's
+    This is one of the strange things of JavaScript. Since, ES6 needs to have backward compatible that's
     why it is impossible to change this behavior. If this is changed then according to ECMA the whole
     internet would break.
 */
