@@ -391,4 +391,35 @@ console.log(SequnceNew.getCurrentValue()) //2
 /*
     1. In this example, we add two functions on the object that we return from the IIFE.
     2. getCurrentValue function that returns the value in current variable.
+    3. Add getNextValue function that increments the value in current by 1 and then returns the value
+    in current.
+
+    Since current variable in private to the IIFE, no one but the functions that have access to it
+    through closure can modify or access the current variable. Now that's a really powerful JavaScript
+    pattern that you have learned. It combines the power of both IIFEs and closures.
+
+    This is a very basic variation on the module pattern. There are more patterns, but almost all of them
+    use an IIFE to create a private closure scope.
+*/
+
+/*
+    When you can omit parentheses
+    Parentheses around the function expression basically force the function to become an expression
+    instead of a statement. But when it's obvious to the JavaScript engine that it's a function expression,
+    we don't technically need those surrounding parentheses as shown below.
+*/
+
+var resultA = function () {
+    return "From IIFE!"
+}()
+
+/*
+    In the above example, function keyword isn't the first word in the statement. So JavaScript doesn't
+    treat this as a function statement/definition. Similarly there are other places where you can omit
+    parenthesis when you know it's an expression.
+
+    But I always prefer to use the parenthesis even in this case. Using parenthesis improves readability
+    by stylistically hinting the reader on the first line that the function is going to be an IIFE. They
+    don't have to scroll to the last line of the function to realize what they just read through was an
+    IIFE after all!
 */
