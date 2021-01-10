@@ -8,9 +8,11 @@ class Human {
 
 class Person extends Human {
     name = 'Harsh'
+    gender = 'Female'
 
     printMyName = () => {
         console.log(this.name)
+        console.log(this.gender)
     }
 }
 
