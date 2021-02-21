@@ -22,6 +22,13 @@ const newPerson = {
 
 console.log(newPerson)
 
+const newPersonWithoutDots = {
+    person,
+    age: 28
+}
+
+console.log(newPersonWithoutDots)
+
 /*
     The Rest operator which is used less often though is used in a function and you could also use ES6
     arrow function.

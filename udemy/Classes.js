@@ -9,7 +9,7 @@ class Human {
 }
 
 /*
-    A property is added by using adding a constructor that is a default function method you can add
+    A property is added by adding a constructor that is a default function method you can add
     to any class which will be executed whenever you instantiate the class and the method is created
     just with the name of the method parentheses and then curly braces. And then there we can now
     set up properties with the this keyword and we could write this.name = 'Max'
