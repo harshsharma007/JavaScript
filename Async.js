@@ -57,9 +57,9 @@ setTimeout(printFive, 0)
     To understand the execution and output of the above code, keep in mind Stack, APIs, Event loop
     and Function queue.
 
-    APIs handle asynchronous part of the JavaScript. So, there is no guarantee which part will be executed first.
-    APIs are handled by browser. They push the objects to the Function Queue and after that there is guarantee
-    how the order will be executed.
+    APIs handle asynchronous part of the JavaScript. So, there is no guarantee which part will be executed
+    first. APIs are handled by browser. They push the objects to the Function Queue and after that there 
+    is guarantee how the order will be executed.
 
     Stack follows First In Last Out, whereas Queue follows First In First Out for the execution.
 

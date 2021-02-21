@@ -3,8 +3,9 @@
     1. Introduced in ES2017
     2. Allows people to write async code as if it were synchronous.
 
-    async keyword is used before function, which will let JavaScript know about the asynchronous behavior of
-    the function. await is a keyword, which will wait for a value to come back before continuing the code.
+    async keyword is used before function, which will let JavaScript know about the asynchronous behavior 
+    of the function. await is a keyword, which will wait for a value to come back before continuing the 
+    code.
 */
 
 async function login(req, res, callback) {
@@ -37,19 +38,19 @@ async function login(req, res, callback) {
 */
 
 /*
-    Promises give us an easier way to deal with asynchrony in our code in a sequential manner. Considering that
-    our brains are not designed to deal with asychronicity efficiently, this is a much welcome addition.
-    Async/Await functions, a new addition with ES2017 (ES8), help us even more in allowing us to write
-    completely synchronous-looking code while performing asynchronous tasks behind the scenes.
+    Promises give us an easier way to deal with asynchrony in our code in a sequential manner. Considering 
+    that our brains are not designed to deal with asychronicity efficiently, this is a much welcome 
+    addition. Async/Await functions, a new addition with ES2017 (ES8), help us even more in allowing us 
+    to write completely synchronous-looking code while performing asynchronous tasks behind the scenes.
 
-    The functionality achieved using async functions can be recreated by combining promises with generators,
-    but async functions give us what we need without any extra boilerplate code.
+    The functionality achieved using async functions can be recreated by combining promises with 
+    generators, but async functions give us what we need without any extra boilerplate code.
 */
 
 /*
-    In the following example, we first declare a function that returns a promise that resolves to a value of
-    'scary clown' after 2 seconds. We then declare an async function and await for the promise to resolve before
-    logging the message to the console.
+    In the following example, we first declare a function that returns a promise that resolves to a value 
+    of 'scary clown' after 2 seconds. We then declare an async function and await for the promise to 
+    resolve before logging the message to the console.
 */
 
 function scaryClown() {
@@ -110,9 +111,9 @@ async function msgNew() {
 msgNew()
 
 /*
-    A word of caution however, in the above example each step is done sequentially, with each additional step
-    waiting for the step before to resolve or reject before continuing. If you instead want the steps to happen
-    in parallel, you can simply use Promise.all to wait for all the promises to have fulfilled:
+    A word of caution however, in the above example each step is done sequentially, with each additional 
+    step waiting for the step before to resolve or reject before continuing. If you instead want the steps 
+    to happen in parallel, you can simply use Promise.all to wait for all the promises to have fulfilled:
 */
 
 async function msgPromiseAll() {
@@ -159,8 +160,8 @@ helloB().then(x => console.log(x)) //Hello Alligator
 
 /*
     Different Forms
-    So far with our examples we saw the async function as a function declaration, but you we can also define
-    async function expressions and async arrow functions:
+    So far with our examples we saw the async function as a function declaration, but you we can also 
+    define async function expressions and async arrow functions:
 
     Async Function Expression
     Here's the async function from our first example, but defined as a function expression:
@@ -209,8 +210,8 @@ msgC()
 msgC()
 
 /*
-    Given that async functions always return a promise, you can also deal with unhandled errors as you would
-    normally using a catch statement:
+    Given that async functions always return a promise, you can also deal with unhandled errors as you 
+    would normally using a catch statement:
 */
 
 async function msgD() {
@@ -246,8 +247,8 @@ msgE(34) //val.toUpperCase is not a function
 
 /*
     Async Functions With Promise-Bases APIS
-    As we showed in our primer to the Fetch API, web APIs that are promise-based are a perfect candidate for
-    async functions:
+    As we showed in our primer to the Fetch API, web APIs that are promise-based are a perfect candidate 
+    for async functions:
 */
 
 async function fetchUsers(endPoint) {

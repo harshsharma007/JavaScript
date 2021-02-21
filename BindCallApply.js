@@ -5,10 +5,10 @@
       In other words, another stack frame.
    2. "this" in JavaScript is slightly different from "this" in other languages.
    3. In the global execution context, "this" refers to global object.
-   4. If the function is called as a method of an object, "this" is bound to the object the method is called on.
-      A method is a term for a key value pair in an object where the value is a function. That key is
-      considered a method. So, if a function is called as a method of an object, "this" is bound to that object
-      that function is called on.
+   4. If the function is called as a method of an object, "this" is bound to the object the method is 
+      called on. A method is a term for a key value pair in an object where the value is a function. That 
+      key is considered a method. So, if a function is called as a method of an object, "this" is bound 
+      to that object that function is called on.
 */
 
 const person = {
@@ -35,15 +35,16 @@ greet() //Case 2
 
 /*
    What would be the value of "this" for Case 2?
-   Now greet is a global object. So the value of this.name would be undefined. Because name is not a key on
-   that global object. And, when we try to de-reference a key which is not defined globally we get undefined.
+   Now greet is a global object. So the value of this.name would be undefined. Because name is not a key 
+   on that global object. And, when we try to de-reference a key which is not defined globally we get 
+   undefined.
 */
 
 name = 'Harmony'
 /*
-   "this" refers to global object. If console.log(this.name) is executed on the browser it will return value
-   of the name 'Harmony'. Since, "this" is not a global object in VS code or Node.js. So, we have to use
-   window object to fetch the value of name variable.
+   "this" refers to global object. If console.log(this.name) is executed on the browser it will return 
+   value of the name 'Harmony'. Since, "this" is not a global object in VS code or Node.js. So, we have 
+   to use window object to fetch the value of name variable.
 */
 console.log(this.name)
 
@@ -157,12 +158,13 @@ function personContainer() {
    }
    person.hello.apply(person, arguments)
 }
-personContainer('world', 'mars') // output: "James Smith says hello mars", note: arguments[0] = "world" , arguments[1] = "mars"
+personContainer('world', 'mars') 
+// output: "James Smith says hello mars", note: arguments[0] = "world" , arguments[1] = "mars"
 
 /*
-   Other way to set "this" manually is by using ES6 arrow notation. ES6 arrow notation will bind "this" to be
-   whatever "this" is at the time we have declared the function rather than at the time we have invoked the
-   function.
+   Other way to set "this" manually is by using ES6 arrow notation. ES6 arrow notation will bind "this" 
+   to be whatever "this" is at the time we have declared the function rather than at the time we have 
+   invoked the function.
 */
 
 const newPerson = {
@@ -174,13 +176,14 @@ newPerson.greet()
 
 /*
    newPerson.greet() will console log 'undefined'. Why?
-   Because "this" is a global object. ES6 arrow notation will bind "this" to be whatever the value is at the time of writing.
+   Because "this" is a global object. ES6 arrow notation will bind "this" to be whatever the value is at 
+   the time of writing.
 */
 
 /*
-   Arrow functions - a new feature introduced in ES6 - enabling writing concise functions in JavaScript. While
-   both regular and arrow functions work in a similar manner, yet there are certain interesting differences
-   between them, as discussed below.
+   Arrow functions - a new feature introduced in ES6 - enabling writing concise functions in JavaScript. 
+   While both regular and arrow functions work in a similar manner, yet there are certain interesting 
+   differences between them, as discussed below.
 */
 
 /*
@@ -232,8 +235,8 @@ userArrow.show(1, 2, 3)
    Using new keyword
    Regular functions created using function declarations or expressions are 'constructible' and 'callable'.
    Since regular functions are constructible, they can be called using the 'new' keyword. However, the
-   arrow functions are only 'callable' and not 'constructible'. Thus, we will get a run-time error on trying
-   to construct a non-constructible arrow functions using the new keyword.
+   arrow functions are only 'callable' and not 'constructible'. Thus, we will get a run-time error on 
+   trying to construct a non-constructible arrow functions using the new keyword.
 */
 
 let x = function () {
