@@ -1,6 +1,6 @@
 /*
-    Closure is a behavior whereby functions that refer to variables declared by a parent function still exist.
-    And it's possibly because of scoping.
+    Closure is a behavior whereby functions that refer to variables declared by a parent function still 
+    exist. And it's possibly because of scoping.
     Or
     A closure is a function that has access to some variables that have already left scope.
 */
@@ -153,12 +153,12 @@ console.log(count()) //1
 console.log(count()) //2
 
 /*
-    Again we are storing the anonymous inner function returned by getCounter function into the count variable.
-    As count function is now a closure, it can access the counter variable of getCounter function even after
-    getCounter() has returned.
+    Again we are storing the anonymous inner function returned by getCounter function into the count 
+    variable. As count function is now a closure, it can access the counter variable of getCounter 
+    function even after getCounter() has returned.
 
-    But notice that the value of the counter is not resetting to 0 on each count function call as it usually
-    should.
+    But notice that the value of the counter is not resetting to 0 on each count function call as it 
+    usually should.
 
     That's because, at each call of count(), a new scope for the function is created, but there is only
     single scope created for getCounter function, because the counter variable is defined in the scope of
@@ -183,11 +183,12 @@ console.log(count()) //2
     When the global code is executed, it's executed inside the global execution context, and the function
     code is executed inside the function execution context.
 
-    There can only be one currently running execution context (Because JavaScript is single threaded language),
-    which is managed by a stack data structure known as Execution Stack or Call Stack.
+    There can only be one currently running execution context 
+    (Because JavaScript is single threaded language), which is managed by a stack data structure known as 
+    Execution Stack or Call Stack.
 
-    An execution stack is a stack with LIFO (Last in, First out) structure in which items can only be added
-    or removed from the top of the stack only.
+    An execution stack is a stack with LIFO (Last in, First out) structure in which items can only be 
+    added or removed from the top of the stack only.
 
     The currently running execution context will be always on the top of the stack, and when the function
     which is currently running  completes, its execution context is popped off from the stack and the
@@ -206,24 +207,24 @@ first()
 console.log('Inside Global Execution Context') //Global Execution Context ends here
 
 /*
-    When this code is executed, the JavaScript engine creates a global execution context to execute the global
-    code, and when it encounters the call to first() function, it creates a new execution context for that
-    function and pushes it to the top of the execution stack.
+    When this code is executed, the JavaScript engine creates a global execution context to execute the
+    global code, and when it encounters the call to first() function, it creates a new execution context
+    for that function and pushes it to the top of the execution stack.
 
     When the first() function completes, its execution stack is removed from the stack, and the control
-    reaches to execution context below it, that is, global execution context. So the remaining code in global
-    scope will be executed.
+    reaches to execution context below it, that is, global execution context. So the remaining code in
+    global scope will be executed.
 */
 
 /*
     Lexical Environment
-    Every time the JavaScript engine creates an execution context to execute the function or global code, it
-    also creates a new lexical environment to store the variable defined in that function during the execution
-    of that function.
+    Every time the JavaScript engine creates an execution context to execute the function or global code,
+    it also creates a new lexical environment to store the variable defined in that function during the
+    execution of that function.
 
-    A lexical environment is a data structure that holds identifier-variable mapping. (here identifier refers
-    to the name of variables/functions, and the variable is the reference to actual object [including function
-    type object] or primitive value).
+    A lexical environment is a data structure that holds identifier-variable mapping.
+    (here identifier refers to the name of variables/functions, and the variable is the reference to
+    actual object [including function type object] or primitive value).
 
     A Lexical Environment has two components:
     1) the environment record
@@ -232,7 +233,7 @@ console.log('Inside Global Execution Context') //Global Execution Context ends h
     1) The environment record is the actual place where the variables and function declarations are stored.
     2) The reference to the outer environment means it has access to its outer (parent) lexical environment.
        This component is the most important in order to understand how closures work.
-    
+
     A lexical environment conceptually looks like this:
 
     lexicalEnvironment = {
@@ -247,10 +248,10 @@ console.log('Inside Global Execution Context') //Global Execution Context ends h
 
     let a = 'Hello World!';
     function first() {
-        let b = 25;  
+        let b = 25;
         console.log('Inside first function');
     }
-    
+
     first();
     console.log('Inside global execution context');
 
@@ -299,7 +300,7 @@ console.log('Inside Global Execution Context') //Global Execution Context ends h
             console.log(name);
         };
     }
-    
+
     let peter = person();
     peter(); // prints 'Peter'
 
@@ -378,7 +379,7 @@ console.log('Inside Global Execution Context') //Global Execution Context ends h
 
     countLexicalEnvironment = {
         environmentRecord: {
-            
+
         }
         outer: <getCountLexicalEnvironment>
     }
