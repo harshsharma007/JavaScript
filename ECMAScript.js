@@ -10,7 +10,7 @@
     What is transpiler?
     Or
     How the backward compatibility is managed in ES series?
-    A transpiler is bascially some code that goes from newer language features and makes it backward compatible
-    with the ES5 spec.
+    A transpiler is bascially some code that goes from newer language features and makes it backward 
+    compatible with the ES5 spec.
     Transpiler picks the new code of new language (TypeScript, Babel) and converts it back to ES5.
 */

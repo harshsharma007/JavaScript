@@ -34,17 +34,16 @@
         2.2 map(), filter(), reduce(). These are three most famous high order function
     
     Map does an operation that can be done to an array.
-    It maps a particular function to every single value in the array and get back an array where the values
-    in the array are the result of passing the original values into some given function.
+    It maps a particular function to every single value in the array and get back an array where the 
+    values in the array are the result of passing the original values into some given function.
 
-    Filter is another high order function, it expects a function and the passed function can either return true
-    or false.
-    Filter retains the values that return true and gets rid of the values that return false.
+    Filter is another high order function, it expects a function and the passed function can either return 
+    true or false. Filter retains the values that return true and gets rid of the values that return false.
 
     Reduce an array of multiple values and reduces it into a single value.
-    It takes a function that expects two arguments where the first argument is some accumulator and it marches
-    down each value and returns that accumulator to the next value.
-    And the second argument is whatever next in that array.
+    It takes a function that expects two arguments where the first argument is some accumulator and it 
+    marches down each value and returns that accumulator to the next value. And the second argument is 
+    whatever next in that array.
 */
 
 /*

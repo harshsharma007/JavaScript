@@ -37,5 +37,6 @@ c()
 
     Q. What happens if one of the functions creates closure? Does it still disappear from the stack?
     A. As long as, nothing needs to be remembered all of those variables and stacks.
-       If these functions, don't create other closures then they'll be erased. This is handled by engine itself.
+       If these functions, don't create other closures then they'll be erased. This is handled by engine 
+       itself.
 */
